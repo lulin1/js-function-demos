@@ -9,10 +9,11 @@ $(document).ready(function(){
     var inputTxt=$("#q").val();
     // alert(inputTxt);
     for(var i=0;i<data.length;i++){
-      if(data[i].indexOf(inputTxt) < 0 ){
-        alert("no");
+      if(data[i].indexOf(inputTxt) > 0 ){
+        document.getElementById("search-result").innerHTML += data[i]; 
+        alert(data[i]);
       } else {
-        alert(data[i])
+        alert("none");
       }
     }
     
@@ -25,5 +26,6 @@ var data=["a1","abort","lalalalal","abstract"];
 <body>
 Search: <input type="text" name="fname" value="ab" id="q" /><br />
 <button>获得第一个文本域的值</button>
+<div id="search-result">this is:</div>
 </body>
 </html>
