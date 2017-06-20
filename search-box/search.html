@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+var inputTxt=$("#q").val();
+$(document).ready(function(){
+  $("button").click(function(){
+    // alert($("#q").val());
+    var inputTxt=$("#q").val();
+    // alert(inputTxt);
+    for(var i=0;i<data.length;i++){
+      if(data[i].indexOf(inputTxt) < 0 ){
+        alert("no");
+      } else {
+        alert(data[i])
+      }
+    }
+    
+  });
+});
+var data=["a1","abort","lalalalal","abstract"];
+
+</script>
+</head>
+<body>
+Search: <input type="text" name="fname" value="ab" id="q" /><br />
+<button>获得第一个文本域的值</button>
+</body>
+</html>
