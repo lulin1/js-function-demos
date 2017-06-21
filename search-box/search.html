@@ -2,30 +2,49 @@
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
-var inputTxt=$("#q").val();
-$(document).ready(function(){
-  $("button").click(function(){
-    // alert($("#q").val());
-    var inputTxt=$("#q").val();
-    // alert(inputTxt);
-    for(var i=0;i<data.length;i++){
-      if(data[i].indexOf(inputTxt) > 0 ){
-        document.getElementById("search-result").innerHTML += data[i]; 
-        alert(data[i]);
-      } else {
-        alert("none");
+  var inputTxt=$("#q").val();
+  $(document).ready(function(){
+    $("button").click(function(){
+      var searchResult = document.getElementById("search-result");
+      searchResult.innerHTML = '';
+      var inputTxt=$("#q").val();]
+      for(var i=0;i<data.length;i++){
+        if(data[i].indexOf(inputTxt) >= 0 ){
+          document.getElementById("search-result").innerHTML += '<p class="result-content" onclick="goto()">'+data[i]+'</p>'; 
+        } 
       }
-    }
-    
+    });
   });
-});
-var data=["a1","abort","lalalalal","abstract"];
+  function goto(){
+    window.location.href='https://www.baidu.com';
+  }
+  var data=["abc","aav","abort","rrc","lalalalal","gagyah","ordadadeihy"];
 
 </script>
+<style type="text/css">
+  .search {
+    width: 90%;
+  }
+  .search-input {
+    width: 200px;
+  }
+  #search-result {
+    width: 200px;
+    background-color: aliceblue;
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  .result-content:hover {
+    color: grey;
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
-Search: <input type="text" name="fname" value="ab" id="q" /><br />
-<button>获得第一个文本域的值</button>
-<div id="search-result">this is:</div>
+  <div class="search">
+    <input type="text" class="search-input" value="" id="q" />
+    <button>search</button>
+  </div>
+  <div id="search-result"></div>
 </body>
 </html>
