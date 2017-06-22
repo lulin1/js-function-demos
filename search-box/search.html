@@ -7,9 +7,9 @@
     $("button").click(function(){
       var searchResult = document.getElementById("search-result");
       searchResult.innerHTML = '';
-      var inputTxt=$("#q").val();]
+      var inputTxt=$("#q").val();
       for(var i=0;i<data.length;i++){
-        if(data[i].indexOf(inputTxt) >= 0 ){
+        if(data[i] == inputTxt ){
           document.getElementById("search-result").innerHTML += '<p class="result-content" onclick="goto()">'+data[i]+'</p>'; 
         } 
       }
