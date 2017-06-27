@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cn-ZH">
+    <head>
+        <meta charset="UTF-8">
+        <title>pagination.js - Mss</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link rel="stylesheet" type="text/css" href="./style/pagination.css" media="screen">
+        <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                
+                <div class="content">
+                    <div class="eg">
+                        <div class="M-box"></div>
+                        <p class="tips">当前是第<span class="now"></span>页</p>
+                    </div>
+                    <div class="eg">
+                        <div class="M-box2"></div>
+                        <p class="tips">开启第一页和最后一页的按钮,并且内容可自定义。内容默认为1和总页数。（注：如coping为false，homePage和endPage无效。）</p>
+                    </div>
+                    <div class="eg">
+                        <div class="M-box1"></div>
+                        
+                    </div>
+                    <div class="eg">
+                        <div class="M-box3"></div>
+                        <p class="tips">参数：jump，开启跳转到第几页，跳转按钮文本内容可修改。（如果超出最大页数会变成总页数的值）</p>
+                        
+                    </div>
+                    <div class="eg">
+                        <div class="M-box4"></div>
+                        <p class="tips">动态修改总页数，初始化时3页，动态修改为20页</p>
+                        
+                    </div>
+                    <div class="eg">
+                       
+                        
+                    </div>
+                   
+                </div>
+            </div>
+           
+        </div>
+        <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+        <script src="./script/jquery.pagination.js"></script>
+        <script>
+            $(function(){
+                $('.M-box').pagination({
+                    callback:function(api){
+                        $('.now').text(api.getCurrent());
+                    }
+                },function(api){
+                    $('.now').text(api.getCurrent());
+                });
+
+                $('.M-box2').pagination({
+                    coping:true,
+                    homePage:'首页',
+                    endPage:'末页',
+                    prevContent:'上页',
+                    nextContent:'下页'
+                });
+
+                $('.M-box1').pagination({
+                    totalData:100,
+                    showData:5,
+                    coping:true
+                });
+
+                $('.M-box3').pagination({
+                    pageCount:50,
+                    jump:true,
+                    coping:true,
+                    homePage:'首页',
+                    endPage:'末页',
+                    prevContent:'上页',
+                    nextContent:'下页'
+                });
+
+                $('.M-box4').pagination({
+                    pageCount: 3, //初始化时总页数3页
+                    callback:function(api){
+                        api.setPageCount(20);//动态修改总页数为20页
+                    }
+                });
+
+                $('.M-box5').pagination({
+                    pageCount: 50,
+                    jump: true,
+                    callback:function(api){
+                        var data = {
+                            page: api.getCurrent(),
+                            name: 'mss',
+                            say: 'oh'
+                        };
+                        $.getJSON('http://localhost:3000/data.json',data,function(json){
+                            console.log(json);
+                        });
+                    }
+                });
+            });
+        </script> 
+    </body>
+</html>
