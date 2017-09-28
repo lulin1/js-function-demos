@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function jsonpCallback(data) {
+			alert('Get the userInfo :' + data.name)
+		}
+	</script>
+	<script type="text/javascript" src="http://127.0.0.1:3000?callback=jsonpCallback"></script>
+</body>
+</html>
