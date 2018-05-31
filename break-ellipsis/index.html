@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style type="text/css">
+  body {
+    font: 1rem/1.75 sans-serif;
+    margin: 1em;
+  }
+
+  .single-line {
+    background-color: #4caf50;
+    border-radius: .25rem;
+    color: #fff;
+    width: 100px;
+    padding: .5rem;
+    /*单行*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .multi-line {
+    background-color: #4caf50;
+    border-radius: .25rem;
+    color: #fff;
+    width: 100px;
+    padding: .5rem;
+    /*多行*/
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* 控制显示的行数 */
+    line-height: 30px; /* 对不支持浏览器的 */
+    max-height: 90px;  /* 对不支持浏览器的弥补 */
+  }
+</style>
+</head>
+<body>
+  <p class="single-line">单行你好你好你好你好你好你好你好你好你好</p>
+  <p class="multi-line">多行多行多行你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好</p>
+</body>
+</html>
