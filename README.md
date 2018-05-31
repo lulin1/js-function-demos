@@ -9,4 +9,5 @@ js常用功能模块汇总，持续更新中。
 
  > [4.搜索框](https://github.com/lulin1/js-function-demos/tree/master/search-box)
 
+ > [5.超长截断显示省略号](https://github.com/lulin1/js-function-demos/tree/master/break-ellipsis)
 
