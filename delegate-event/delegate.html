@@ -63,11 +63,7 @@
 	}
 
 	function matchSelector (target, selector) {
-		if (target.tagName.toLowerCase() === selector) {
-			return true;
-		} else {
-			return false;
-		}
+		return target.tagName.toLowerCase() === selector;
 	}
 
 	var oul = document.getElementById('oul');
