@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>delegate function</title>
+	<style type="text/css">
+		#oul {
+			background: gold;
+			padding: 30px;
+		}
+		li {
+		    width: 100px;
+    		background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<ul id="oul">
+		<li id="add">111</li>
+		<li id="delete">222</li>
+		<li id="change">333</li>
+		<li id="save">444</li>
+		<li id="move">555</li>
+		<p>p1</p>
+		<p>p2</p>
+		<p>p3</p>
+	</ul>
+</body>
+<script type="text/javascript">
+	function delegateEvent (parent, selector, type, fn) {
+		if (parent.addEventListener) {
+			parent.addEventListener(type, eventFn);
+		} else {
+			parent.attachEvent('on' + type, eventFn);
+		}
+
+		function eventFn (e) {
+			var e = e || window.event;
+			var target = e.target || e.srcElement;
+			if (matchSelector(target, selector)) {
+				if (fn) {
+					fn.call(target, e)
+				}
+				/* Pop up different centent according to id of li */
+					// switch(target.id) {
+					// 	case 'add' :
+					// 		alert('Add !!');
+					// 		break;
+					// 	case 'delete' :
+					// 		alert('Delete !!');
+					// 		break;
+					// 	case 'change' :
+					// 		alert('Change !!');
+					// 		break;
+					// 	case 'save' :
+					// 		alert('Save !!');
+					// 		break;
+					// 	case 'move' :
+					// 		alert('Move !!');
+					// 		break;
+					// }
+			}
+		}
+	}
+
+	function matchSelector (target, selector) {
+		if (target.tagName.toLowerCase() === selector) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	var oul = document.getElementById('oul');
+	delegateEvent(oul, 'li', 'click', function () {alert('li click success!!!')});
+	delegateEvent(oul, 'p', 'click', function () {alert('p click success!!!')})
+</script>
+</html>
