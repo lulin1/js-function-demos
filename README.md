@@ -11,6 +11,6 @@ js常用功能模块汇总，持续更新中。
 
  > [5.超长截断显示省略号](https://github.com/lulin1/js-function-demos/tree/master/break-ellipsis)
   
- > [6.js实现事件委托函数](https://github.com/lulin1/js-function-demos/tree/master/delegate-event)
+ > [6.js手写实现事件委托函数（常见面试题）](https://github.com/lulin1/js-function-demos/tree/master/delegate-event)
 
 
