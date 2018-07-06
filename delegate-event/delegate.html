@@ -38,7 +38,7 @@
 			var target = e.target || e.srcElement;
 			if (matchSelector(target, selector)) {
 				if (fn) {
-					fn.call(target, e)
+					fn.call(target, target.id)
 				}
 				/* Pop up different centent according to id of li */
 					// switch(target.id) {
@@ -67,7 +67,7 @@
 	}
 
 	var oul = document.getElementById('oul');
-	delegateEvent(oul, 'li', 'click', function () {alert('li click success!!!')});
+	delegateEvent(oul, 'li', 'click', function (id) {alert(id + ' li click success!!!')});
 	delegateEvent(oul, 'p', 'click', function () {alert('p click success!!!')})
 </script>
 </html>
