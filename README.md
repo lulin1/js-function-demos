@@ -13,4 +13,4 @@ js常用功能模块汇总，持续更新中。
   
  > [6.js手写实现事件委托函数（常见面试题）](https://github.com/lulin1/js-function-demos/tree/master/delegate-event)
 
-
+ > [7.js手写实现快速排序（常见面试题-算法）](https://github.com/lulin1/js-function-demos/tree/master/quick-sort)
