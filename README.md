@@ -16,3 +16,5 @@ js常用功能模块汇总，持续更新中。
  > [7.js手写实现快速排序（常见面试题-算法）](https://github.com/lulin1/js-function-demos/tree/master/quick-sort)
 
  > [8.js手写实现bind函数（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/bind)
+
+ > [9.js手写实现数组去重（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/unique-array)
