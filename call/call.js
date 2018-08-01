@@ -6,7 +6,6 @@ Function.prototype.callByHand = function (context) {
 		var arg = 'arguments[' + i + ']';
 		args.push(arg);
 	}
-	console.log('==='+args)
 	// context.fn(...args);
 	var result = eval('context.fn(' + args +')');
 	delete context.fn
@@ -28,5 +27,5 @@ var bar = function (name, age) {
 	}
 }
 
-// bar.call(null);
-bar.callByHand(obj, 'lulin', '25');
+bar.callByHand(null); //与bar.call(null);结果相同
+bar.callByHand(obj, 'lulin', '25'); //与bar.call(obj, 'lulin', 25);结果相同
