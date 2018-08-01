@@ -3,16 +3,14 @@ Function.prototype.callByHand = function (context) {
 	context.fn = this;
 	var args = [];
 	for (var i = 1, len = arguments.length; i < len; i++) {
-		var arg = 'arguments[' + i + ']';
-		args.push(arg);
+		args.push(arguments[i]);
 	}
-	// context.fn(...args);
-	var result = eval('context.fn(' + args +')');
-	delete context.fn
+	var result = context.fn(...args);
+	delete context.fn //删除context对象原本没有的fn函数
 	return result;
 }
 
-var value = 'window';
+var value = 'windowValue';
 
 var obj = {
 	'value' : 'objValue'
