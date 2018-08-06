@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>debounce+throttle</title>
+</head>
+<body>
+	<div id="box" style="width: 200px; height: 200px; background: gold;	text-align: center; line-height: 200px;">I'm box !</div>
+</body>
+<script type="text/javascript">
+	var num = 0;
+	var box = document.getElementById('box');
+	var count = function () {
+		box.innerHTML = num++;
+	}
+	/*防抖的原理就是：你尽管触发事件，但是我一定在事件触发 n 秒后才执行，如果你在一个事件触发的 n 秒内又触发了这个事件，那我就以新的事件的时间为准，n 秒后才执行，总之，就是要等你触发完事件 n 秒内不再触发事件，我才执行*/
+	var debounce1 = function (func, time) {
+		var timeout;
+		return function () {
+			clearTimeout(timeout);
+			timeout = setTimeout(func, time);
+		}
+	}
+	// box.onmousemove = count;
+	box.onmousemove = debounce1(count, 1000);
+</script>
+</html>
