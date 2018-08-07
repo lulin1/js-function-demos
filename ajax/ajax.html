@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax</title>
+	<style type="text/css">
+		.box {
+			display: flex;
+			align-items: center;
+		}
+		input {
+			width: 150px;
+			height: 20px;
+			margin-right: 15px;
+		}
+		button {
+			width: 50px;
+			height: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="name-box box">
+		<input type="input" name="name" placeholder="input your name" />
+		<button onclick="get()">get</button>
+		<button onclick="post()">post</button>
+	</div>
+</body>
+<script type="text/javascript">
+	var inputData = document.getElementById('input');
+	function get () {
+		var ajax = new Ajax({
+			method: 'get',
+			url: 'localhost:3000',
+			callback: function(res){//设置回调函数
+		        alert('get res is:' + res);
+		    },
+			data: ''
+		})
+		ajax.send();
+	}
+	function post () {
+		var ajax = new Ajax({
+			method: 'get',
+			url: 'localhost:3000',
+			callback: function(res){//设置回调函数
+		        alert('post res is:' + res);
+		    },
+			data: ''
+		})
+		ajax.send();
+	}
+
+	function Ajax (obj) {
+		this.data = obj.data || '';
+		this.method = obj.method || '';
+		this.url = obj.url || '';
+		this.callback = obj.callback || '';
+		// console.log(JSON.stringify(obj.callback))
+	}
+	Ajax.prototype.send = function (method, url, data, callback) {
+		var method = method || this.method,
+			data = data || this.data,
+			url = url || this.url,
+			callback = callback || this.callback;
+			
+		console.log(callback)
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4) {
+				callback(xhr.responseText);
+				// alert(11)
+			}
+		}
+		xhr.withCredentials = true;
+		xhr.open(method, url + '?name=lulin', true);
+		xhr.send(null);
+	}
+</script>
+</html>
