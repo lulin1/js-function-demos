@@ -20,3 +20,6 @@ js常用功能模块汇总，持续更新中。
  > [9.js手写实现call和apply函数（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/call-apply)
 
  > [10.js手写实现数组去重（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/unique-array)
+ 
+ > [11.js手写实现函数防抖debounce（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/debounce)
+
