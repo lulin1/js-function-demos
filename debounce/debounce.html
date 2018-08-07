@@ -11,6 +11,7 @@
 	var box = document.getElementById('box');
 	var count = function () {
 		box.innerHTML = num++;
+		return 19920816;
 	}
 	/*防抖的原理就是：你尽管触发事件，但是我一定在事件触发 n 秒后才执行，如果你在一个事件触发的 n 秒内又触发了这个事件，那我就以新的事件的时间为准，n 秒后才执行，总之，就是要等你触发完事件 n 秒内不再触发事件，我才执行*/
 	var debounce1 = function (func, time) {
@@ -20,7 +21,72 @@
 			timeout = setTimeout(func, time);
 		}
 	}
-	// box.onmousemove = count;
-	box.onmousemove = debounce1(count, 1000);
+	/*修复this 指向和event 对象*/
+	var debounce2 = function (func, time) {
+		var timeout;
+		return function () {
+			var context = this,
+				args = arguments;
+			clearTimeout(timeout);
+			timeout = setTimeout(function () {
+				func.apply(context, args);
+			}, time);
+		}
+	}
+	/*immediate为true时，首次会直接执行，然后等待time毫秒后再次执行*/
+	var debounce3 = function (func, time, immediate) {
+		var timeout;
+		return function () {
+			var context = this,
+				args = arguments;
+			clearTimeout(timeout);
+			if (immediate) {
+				console.log(!timeout)
+				var canNow = !timeout;
+				if (canNow) {
+					func.apply(context, args);
+				}
+				//将timeout赋值为setTimeout()，在time之前timeout有赋值，所以timeout不为空，所以!timeout为false，所以func.apply无法执行；当time时间到达后，timeout被设为null，所以!timeout为true，所以func.apply可以执行。
+				timeout = setTimeout(function () {
+					timeout = null;
+				}, time)
+			} else {
+				console.log(2)
+				timeout = setTimeout(function () {
+					func.apply(context, args);
+				}, time);
+			}
+		}
+	}
+	/*函数可能是有返回值的，所以我们也要返回函数的执行结果...当 immediate 为 false 的时候，因为使用了 setTimeout ，我们将 func.apply(context, args) 的返回值赋给变量，最后再 return 的时候，值将会一直是 undefined，所以我们只在 immediate 为 true 的时候返回函数的执行结果。*/
+	var debounce4 = function (func, time, immediate) {
+		var timeout, result;
+		return function () {
+			var context = this,
+				args = arguments;
+			clearTimeout(timeout);
+			if (immediate) {
+				console.log(!timeout)
+				var canNow = !timeout;
+				if (canNow) {
+					result = func.apply(context, args);
+				}
+				timeout = setTimeout(function () {
+					timeout = null;
+				}, time)
+			} else {
+				console.log(2)
+				timeout = setTimeout(function () {
+					func.apply(context, args);
+				}, time);
+			}
+			return result;
+		}
+	}
+	//box.onmousemove = count;
+	//box.onmousemove = debounce1(count, 300);
+	// box.onmousemove = debounce2(count, 300);
+	//box.onmousemove = debounce3(count, 1000, true);
+	box.onmousemove = debounce4(count, 1000, true);
 </script>
 </html>
