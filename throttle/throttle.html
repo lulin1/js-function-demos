@@ -5,6 +5,7 @@
 </head>
 <body>
 	<div id="box" style="width: 200px; height: 200px; background: #000; text-align: center; line-height: 200px; color: #fff">s</div>
+	<button style="width: 50px; height: 30px; background-color: #eee;" onclick="cancel()">cancel</button>
 </body>
 <script type="text/javascript">
 	var num = 0,
@@ -28,7 +29,148 @@
 		}
 	}
 
+	/*使用定时器*/
+	var throttle2 = function (func, time) {
+		var context, args, timeout;
+		return function () {
+			context = this;
+			args = arguments;
+			if (!timeout) {
+				timeout = setTimeout(function () {
+					timeout = null;
+					func.apply(context, args);
+				}, time)
+			}
+		}
+	}
+
+	/*使用时间戳+定时器*/
+	var throttle3 = function (func, time) {
+		var context, args, timeout;
+		var prev = 0;
+		return function () {
+			var now = +new Date(),
+				remaining = time - (now - prev);
+			context = this;
+			args = arguments;
+			// 如果没有剩余的时间了或者你改了系统时间
+			if (remaining <= 0 || remaining > time) {
+				if (timeout) {
+					clearTimeout(timeout);
+					timeout = null;
+				}
+				prev = now;
+				func.apply(context, args);
+			} else if (!timeout) {
+				timeout = setTimeout(function () {
+					prev = +new Date();
+					timeout = null;
+					func.apply(context, args);
+				}, remaining)
+			}
+		}
+	}
+
+	/*优化:设置个 options 作为第三个参数，然后根据传的值判断到底哪种效果，我们约定:
+		leading：false 表示禁用第一次执行
+		trailing: false 表示禁用停止触发的回调
+	*/
+	var throttle4 = function (func, time, options) {
+		var context, args, timeout;
+		var prev = 0;
+		if (!options) {
+			options = {};
+		}
+
+		return function () {
+			var now = +new Date();
+			if (!prev && options.leading === false) {
+				prev = now;
+			}
+			var remaining = time - (now - prev);
+			context = this;
+			args = arguments;
+			if (remaining <= 0 || remaining > time) {
+				if (timeout) {
+					clearTimeout(timeout);
+					timeout = null;
+				}
+				prev = now;
+				func.apply(context, args);
+				if (!timeout) {
+					context = args = null;
+				}
+			} else if (!timeout && options.trailing !== false) {
+				timeout = setTimeout(function () {
+					// prev = +new Date();
+					prev = options.leading === false ? 0 : +new Date();
+					timeout = null;
+					func.apply(context, args);
+					if (!timeout) {
+						context = args = null;
+					}
+				}, remaining)
+			}
+		}
+	}
+
+	/*最终版--添加 cancel 方法*/
+	var throttle5 = function (func, time, options) {
+		var context, args, timeout;
+		var prev = 0;
+		if (!options) {
+			options = {};
+		}
+
+		var throttled = function () {
+			var now = +new Date();
+			if (!prev && options.leading === false) {
+				prev = now;
+			}
+			var remaining = time - (now - prev);
+			context = this;
+			args = arguments;
+			if (remaining <= 0 || remaining > time) {
+				if (timeout) {
+					clearTimeout(timeout);
+					timeout = null;
+				}
+				prev = now;
+				func.apply(context, args);
+				if (!timeout) {
+					context = args = null;
+				}
+			} else if (!timeout && options.trailing !== false) {
+				timeout = setTimeout(function () {
+					prev = options.leading === false ? 0 : +new Date();
+					timeout = null;
+					func.apply(context, args);
+					if (!timeout) {
+						context = args = null;
+					}
+				}, remaining)
+			}
+		}
+
+		throttled.cancel = function () {
+			clearTimeout(timeout);
+			timeout = null;
+			prev = 0;
+		}
+
+		return throttled;
+	}
+
+	var cancel = function () {
+		throttled.cancel();
+	}
+
 	// box.onmousemove = count;
-	box.onmousemove = throttle1(count, 1000);
+	// box.onmousemove = throttle1(count, 1000);
+	// box.onmousemove = throttle2(count, 1000);
+	// box.onmousemove = throttle3(count, 1000);
+	// box.onmousemove = throttle4(count, 1000, {trailing: false});
+	var throttled = throttle5(count, 1000, {trailing: false});
+	box.onmousemove = throttled;
 </script>
 </html>
