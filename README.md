@@ -25,4 +25,6 @@ js常用功能模块汇总，持续更新中。
  
  > [12.js手写实现函数防抖throttle（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/throttle)
 
+ > [13.js手写实现深浅拷贝（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/deep-copy)
+
 
