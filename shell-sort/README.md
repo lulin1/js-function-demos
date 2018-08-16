@@ -14,4 +14,4 @@
 
 ## 动态演示：
 
-[shell.gif](./shell.gif)
+![shell.gif](./shell.gif)
