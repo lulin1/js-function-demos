@@ -21,4 +21,4 @@
 
 ## 动图演示
 
-![动图演示](res/mergeSort.gif)
+![动图演示](../mergeSort.gif)
