@@ -28,3 +28,5 @@
 
 
 ## （三）图示:
+
+![bucketSort.jpg](./bucketSort.jpg)
