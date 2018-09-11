@@ -20,20 +20,26 @@ js常用功能模块汇总，持续更新中。
  > [9.js手写实现插入排序（常见面试题-算法）](https://github.com/lulin1/js-function-demos/tree/master/insertion-sort)
  
  > [10.js手写实现希尔排序（常见面试题-算法）](https://github.com/lulin1/js-function-demos/tree/master/shell-sort)
-
- > [11.js手写实现bind函数（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/bind)
-
- > [12.js手写实现call和apply函数（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/call-apply)
-
- > [13.js手写实现数组去重（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/unique-array)
  
- > [14.js手写实现函数防抖debounce（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/debounce)
+ > [11.js手写实现归并排序（常见面试题-算法）](https://github.com/lulin1/js-function-demos/tree/master/merge-sort)
  
- > [15.js手写实现函数防抖throttle（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/throttle)
+ > [12.js手写实现堆排序（常见面试题-算法）](https://github.com/lulin1/js-function-demos/tree/master/heap-sort)
+ 
+ > [13.js手写实现计数排序（常见面试题-算法）](https://github.com/lulin1/js-function-demos/tree/master/counting-sort)
 
- > [16.js手写实现深浅拷贝（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/deep-copy)
+ > [14.js手写实现bind函数（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/bind)
+
+ > [15.js手写实现call和apply函数（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/call-apply)
+
+ > [16.js手写实现数组去重（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/unique-array)
  
- > [17.js手写实现类型判断（12种）（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/type)
+ > [17.js手写实现函数防抖debounce（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/debounce)
+ 
+ > [18.js手写实现函数防抖throttle（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/throttle)
+
+ > [19.js手写实现深浅拷贝（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/deep-copy)
+ 
+ > [20.js手写实现类型判断（12种）（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/type)
 
 
 
