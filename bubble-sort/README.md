@@ -12,4 +12,4 @@
   
 ### 2、动图演示
 
-![bubbleSort.gif](./bubble.gif)
+![bubbleSort.gif](./bubbleSort.gif)
