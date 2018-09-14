@@ -46,6 +46,9 @@ js常用功能模块汇总，持续更新中。
  > [22.js手写实现深浅拷贝（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/deep-copy)
  
  > [23.js手写实现类型判断（12种）（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/type)
+ 
+ > [24.js手写实现数组扁平化（常见面试题-基础）](https://github.com/lulin1/js-function-demos/tree/master/flatten-array)
+
 
 
 
