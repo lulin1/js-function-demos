@@ -12,11 +12,11 @@
  			funcBound = function () {
  				return doThis.apply(this instanceof funcNop ? this : oThis, doArgs.concat(Array.prototype.slice.call(arguments)));
  			};
- 			if (this.prototype) {
- 				funcNop.prototype = this.prototype;
- 			}
- 			funcBound.prototype = new funcNop();
- 			return funcBound;
+		if (this.prototype) {
+			funcNop.prototype = this.prototype;
+		}
+		funcBound.prototype = new funcNop();
+		return funcBound;
  	}
  // }
 
