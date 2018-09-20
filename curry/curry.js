@@ -36,7 +36,7 @@ var curry = function (func, args) {
 var beArray = function (a, b, c) {
 	console.log([a, b, c]);
 }
-var fn = curry(beArray);
+var fn = curry(beArray); //curry函数里只有一个参数，即要执行的函数
 fn('a', 'b', 'c'); // ["a", "b", "c"]
 fn("a", "b")("c"); // ["a", "b", "c"]
 fn('a')('b')('c'); // ["a", "b", "c"]
