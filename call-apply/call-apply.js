@@ -33,8 +33,7 @@ bar1.callByHand(obj, 'lulin', '25'); //与bar1.call(obj, 'lulin', 25);结果相�
 Function.prototype.applyByHand = function (context, arr) {
 	var context = context || window;
 	context.fn = this;
-	var args = [],
-		result;
+	var result;
 	if (arr) {
 		result = context.fn(...arr);
 	} else {
