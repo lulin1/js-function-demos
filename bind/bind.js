@@ -26,7 +26,8 @@
  	return this.a;
  }
  
- var test = foo.bind({a:2});
- test(); // 2
- var test2 = new test();
+ var test = foo.bind({a:2}); //test->funcBound
+
+ test(); // 2----直接调用func()的时候，this指向的是全局对象，那么结果是oThis/{a:2}，这样就可以让这个doThis的this指向这个传进来的对象oThis；
+ var test2 = new test(); //如果通过new func()来调用，this会指向一个空对象，这个空对象的原型会指向构造器test的prototype的属性，也就是test/funcBound的prototype属性。此时this instanceof fNOP 为true，那么返回的是this就是当前正常的this；相当于忽略掉bind的this的影响
  test2 // funcBound {b: 1}

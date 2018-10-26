@@ -27,6 +27,7 @@ var bucketSort = function (arr, bucketNum) {
 				for(var k = 0; k < buckets[j].length; k++) {
 					newArray.push(buckets[j][k]);
 				}
+				//newArray = newArray.concat(buckets[j]);
 			}
 		}
 		return newArray;
