@@ -1,0 +1,105 @@
+<html></!DOCTYPE html>
+<html>
+<head>
+	<title>search</title>
+	<style type="text/css">
+		ul {
+			width: 100px;
+		}
+		li {
+			list-style: none;
+		}
+		.selected {
+			background: #eee;
+			width: 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var data = ['aa', 'ab', 'ac'],
+				inputBox = document.getElementById('inputValue'),
+				ul = document.getElementById('result-ul'),
+				lis = document.getElementsByClassName('li-item'),
+				index = 0;
+
+			inputBox.addEventListener('keyup', function(e) {
+				var event = e || window.event,
+					target = event.target || event.srcElement;
+				var temp = [];
+				for(var i = 0; i < data.length; i++) {
+					if (inputBox.value.length > 0) {
+						if (data[i].indexOf(inputBox.value) >= 0) {
+							temp.push(data[i]);
+						}
+					}
+				}
+				console.log('temp-len---'+temp.length);
+				ul.style.display = 'block';
+				for(var j = 0; j < lis.length; j++) {
+					if (temp[j]) {
+						lis[j].innerHTML = temp[j];
+					} else {
+						lis[j].innerHTML = null;
+					}
+				}
+
+				for (var i = 0; i < temp.length; i++) {
+					if (lis[i].classList.contains('selected')) {
+						lis[i].classList.remove('selected');
+					}
+				}
+				if (index) {
+					lis[index].classList.add('selected');
+				} else {
+					lis[0].classList.add('selected');
+				}
+
+				switch (e.keyCode) {
+					case 38:
+						lis[index].classList.remove('selected');
+						index--;
+						if (index < 0) {
+							index = 0;
+						}
+						lis[index].classList.add('selected')
+						break;
+					case 40:
+						lis[index].classList.remove('selected');
+						index++;
+						console.log('index---'+index);
+						if (index > temp.length - 1) {
+							index = temp.length - 1;
+						}
+						lis[index].classList.add('selected')
+						break
+					case 13:
+						inputBox.value = lis[index].innerHTML;
+						ul.style.display = 'none';
+						break;
+					default:
+						console.log('dont exist keycode')
+				}
+
+				ul.addEventListener('click', function (e) {
+					console.log(inputBox.value);
+					inputBox.value = e.target.innerHTML;
+					ul.style.display = 'none';
+				})
+			})
+		}
+	</script>
+</head>
+<body>
+	<div class="search-box">
+		<input type="input" name="input" id="inputValue" />
+		<ul id="result-ul">
+			<li id="li-1" class="li-item"></li>
+			<li id="li-2" class="li-item"></li>
+			<li id="li-3" class="li-item"></li>
+			<li id="li-4" class="li-item"></li>
+			<li id="li-5" class="li-item"></li>
+			<li id="li-6" class="li-item"></li>
+		</ul>
+	</div>
+</body>
+</html>
