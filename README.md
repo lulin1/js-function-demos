@@ -48,6 +48,35 @@ js常用功能模块汇总，持续更新中。
  > [23.js手写实现类型判断（12种）（基础）](https://github.com/lulin1/js-function-demos/tree/master/type)
  
  > [24.js手写实现数组扁平化（基础）](https://github.com/lulin1/js-function-demos/tree/master/flatten-array)
+ 
+ > [25.js手写实现ajax（基础）](https://github.com/lulin1/js-function-demos/tree/master/ajax)
+ 
+ > [26.js手写实现大数相加（基础）](https://github.com/lulin1/js-function-demos/tree/master/bigAdd)
+ 
+ > [27.js手写实现curry（基础）](https://github.com/lulin1/js-function-demos/tree/master/curry)
+ 
+ > [28.js手写实现each/map（基础）](https://github.com/lulin1/js-function-demos/tree/master/each-map)
+ 
+ > [29.js手写实现equal（基础）](https://github.com/lulin1/js-function-demos/tree/master/eq)
+ 
+ > [30.js手写实现extend（基础）](https://github.com/lulin1/js-function-demos/tree/master/extend)
+ 
+ > [31.js手写实现find-index（基础）](https://github.com/lulin1/js-function-demos/tree/master/find-index)
+ 
+ > [32.js手写实现inherit（基础）](https://github.com/lulin1/js-function-demos/tree/master/inherit)
+ 
+ > [33.js手写实现lazyman（基础）](https://github.com/lulin1/js-function-demos/tree/master/lazyman)
+ 
+ > [34.js手写实现new（基础）](https://github.com/lulin1/js-function-demos/tree/master/new)
+ 
+ > [35.js手写实现repeat（基础）](https://github.com/lulin1/js-function-demos/tree/master/repeat)
+ 
+ > [36.js手写实现search-box（基础）](https://github.com/lulin1/js-function-demos/tree/master/search-box)
+ 
+ > [37.js手写实现traverse-arr（基础）](https://github.com/lulin1/js-function-demos/tree/master/traverse)
+ 
+ > [38.js手写实现trim（基础）](https://github.com/lulin1/js-function-demos/tree/master/trim)
+ 
 
 
 
